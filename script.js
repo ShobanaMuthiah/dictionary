@@ -11,7 +11,7 @@ const val=value.value;
 
     const url=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${val}`)
     const data=await url.json();
-    console.log(data);
+    // console.log(data);
     let defi;
 
 function def(){
@@ -27,7 +27,17 @@ function def(){
 for(var i=0;i<(data[0].meanings[j].definitions).length;i++)
 {
     defi=(data[0].meanings[j].definitions[i].definition); 
+    let eg=data[0].meanings[j].definitions[i].example
     dis.innerHTML+=`Definition ${[i+1]}: ${defi} <br>`
+    if(eg!==undefined)
+    {
+        dis.innerHTML+=`<div id="ex">
+    Example:
+    ${eg} </div><br> `
+    }
+    else{
+        document.getElementById("ex").value='';
+    }
     // console.log(defi); 
 }
     }
