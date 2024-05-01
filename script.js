@@ -8,26 +8,24 @@ const err = document.getElementById("err");
 
 search.addEventListener("click", async () => {
   try {
-    if (value.value === null || value.value === "") {
-      throw new Error("Empty Field! Please insert a to search");
-    }
+    
     hid.classList.remove("hidden"); //removing hidden class to display the card elements
     const val = value.value;
     const url = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${val}`
     );
+    if (value.value === null || value.value === "") {
+        throw new Error("Empty Field! Please insert a to search");
+      }
+if(!url.ok)
+{ 
+    throw new Error('The Word does not found in dictionary');
+}
     const data = await url.json();
     // console.log(data);
-    let defi;
+    
     function def() {
-        try{
-            if(value.value!==data[0].word){
-                throw new Error("The word is not found in dictionary")
-            }
-        }
-        catch(error){
-err.innerHTML=`${error.message}`
-        }
+     
       dis.innerHTML = `
     <div class="card-title">Word: ${data[0].word}</div>
     <div class="card-title">Phonetic: ${data[0].phonetic}</div>
@@ -37,7 +35,7 @@ err.innerHTML=`${error.message}`
       for (var j = 0; j < data[0].meanings.length; j++) {
         dis.innerHTML += `<div class="parts"><br><br>Parts of Speech : ${data[0].meanings[j].partOfSpeech}<br></div>`;
         for (var i = 0; i < data[0].meanings[j].definitions.length; i++) {
-          defi = data[0].meanings[j].definitions[i].definition;
+        let  defi = data[0].meanings[j].definitions[i].definition;
           let eg = data[0].meanings[j].definitions[i].example;
           dis.innerHTML += `Definition ${[i + 1]}: ${defi} <br>`;
           if (eg !== undefined) {
@@ -51,6 +49,7 @@ err.innerHTML=`${error.message}`
         }
       }
     }
+    def();
   } 
   catch (error) {
   
@@ -59,7 +58,7 @@ err.innerHTML=`${error.message}`
       err.innerHTML = `${error.message}`;
     
   }
-  def();
+  
 });
 clr.addEventListener("click", () => {
     err.innerHTML=''
