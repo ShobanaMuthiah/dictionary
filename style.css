@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(195, 147, 84) !important;
+    color: whitesmoke !important;
+    text-align: center !important;
+}
+.card{
+    margin: 0% 10% !important;
+    text-align: justify !important;
+    background-color: rgba(197, 107, 136, 0.707) !important;
+    color: rgb(255, 255, 255) !important
+}
+.hidden{
+    display: none !important;
+}
+.input{
+    width:40% !important;
+    padding: 3px 1px !important;
+    border-radius: 5px !important;
+}
+.err{
+    color: rgb(171, 17, 17) !important;
+}
+.search, .clr{
+    border-radius: 7px !important;
+    padding: 3px 3px !important;
+    background-color: rgb(226, 43, 168);
+    color: azure;
+}
