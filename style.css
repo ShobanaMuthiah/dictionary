@@ -31,3 +31,9 @@ body{
     background-color: rgb(226, 43, 168);
     color: azure;
 }
+@media (max-width: 400px) {
+    audio{
+        width :50% !important;
+        height: 40px !important;
+    }
+}
