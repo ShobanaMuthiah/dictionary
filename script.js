@@ -73,23 +73,12 @@ let audio=aud.innerHTML=`<audio controls src="${a}" class="wid"></audio>` //disp
     let  defi = data[0].meanings[j].definitions[i].definition;
       let eg = data[0].meanings[j].definitions[i].example;
       // console.log(defi);
-      dis.innerHTML += `Definition ${[i + 1]}: ${defi} <br>`;
-      let examp;
-      eg?examp=eg:examp='';  
-      // let empty=document.getElementById("ex").value     
-      if(examp===eg)
-        {
-          // console.log(examp);
+      dis.innerHTML += `Definition ${[i + 1]}: ${defi} <br>`;     
+      if(eg)
+        {//if example is found in the array object it creates a div to display the examples
           let exam=document.createElement("div");
-        exam.innerHTML=`Example: ${examp} <br><br>`
+        exam.innerHTML=`Example: ${eg} <br><br>`
         dis.append(exam);
-          // empty = examp;
-        }
-        else{
-          // console.log(examp);
-          let exam=document.createElement("div");
-exam.classList.add("hidden")
-dis.append(exam);    
         }
     }
   }
