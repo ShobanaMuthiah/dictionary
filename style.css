@@ -33,7 +33,7 @@ body{
 }
 @media (max-width: 400px) {
     audio{
-        width :50% !important;
-        height: 40px !important;
+        width :60% !important;
+        height: 30px !important;
     }
 }
