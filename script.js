@@ -44,10 +44,7 @@ function url(data){
         return(urlaudio);
     }
 }
-
 }
- 
-
 function surl(data){
   //getting sourceUrl from respective object file
     let srcurl=data[0].phonetics
@@ -79,18 +76,17 @@ let audio=aud.innerHTML=`<audio controls src="${a}" class="wid"></audio>` //disp
       dis.innerHTML += `Definition ${[i + 1]}: ${defi} <br>`;
       let examp;
       eg?examp=eg:examp='';  
-      // let empty=document.getElementById("ex").value
-      
+      // let empty=document.getElementById("ex").value     
       if(examp===eg)
         {
-          console.log(examp);
+          // console.log(examp);
           let exam=document.createElement("div");
         exam.innerHTML=`Example: ${examp} <br><br>`
         dis.append(exam);
           // empty = examp;
         }
         else{
-          console.log(examp);
+          // console.log(examp);
           let exam=document.createElement("div");
 exam.classList.add("hidden")
 dis.append(exam);    

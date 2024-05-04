@@ -35,5 +35,6 @@ body{
     audio{
         width :60% !important;
         height: 30px !important;
+        font-size: small !important;
     }
 }
