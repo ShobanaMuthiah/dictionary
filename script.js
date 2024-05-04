@@ -17,7 +17,7 @@ search.addEventListener("click", async () => {
     );
     if (value.value === null || value.value === "") { 
     //when the input field is empty it throws the error message
-        throw new Error("Empty Field! Please insert a to search");
+        throw new Error("Empty Field! Please insert a word to search");
       }
 if(!url.ok)
 { 
