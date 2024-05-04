@@ -54,12 +54,7 @@ function surl(data){
     const found = srcurl.find((element) => element.sourceUrl);
     const u=found.sourceUrl;
 return u;
-
-  
-
 }
-
-
 function def(data) {
 let b=surl(data); //storing sourceurl in b variable
 let srcul=document.createElement('p'); //creating p tag
@@ -82,16 +77,24 @@ let audio=aud.innerHTML=`<audio controls src="${a}" class="wid"></audio>` //disp
       let eg = data[0].meanings[j].definitions[i].example;
       // console.log(defi);
       dis.innerHTML += `Definition ${[i + 1]}: ${defi} <br>`;
-      if (eg !== undefined||eg!==''||eg!==null) {
-        // console.log(eg);
-        dis.innerHTML += `<div id="ex">
-Example:
-${eg} </div><br> `;
-      } else {
-        document.getElementById("ex").value = ""; //if the example is not found the div tag would be empty
-  
-      }
-      // console.log(defi);
+      let examp;
+      eg?examp=eg:examp='';  
+      // let empty=document.getElementById("ex").value
+      
+      if(examp===eg)
+        {
+          console.log(examp);
+          let exam=document.createElement("div");
+        exam.innerHTML=`Example: ${examp} <br><br>`
+        dis.append(exam);
+          // empty = examp;
+        }
+        else{
+          console.log(examp);
+          let exam=document.createElement("div");
+exam.classList.add("hidden")
+dis.append(exam);    
+        }
     }
   }
 }
